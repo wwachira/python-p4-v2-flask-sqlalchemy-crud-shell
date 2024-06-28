@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 
 from models import db
 
+
 # create a Flask application instance 
 app = Flask(__name__)
 
@@ -15,7 +16,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # create a Migrate object to manage schema modifications
-migrate = Migrate(app, db)
+migrate = Migrate(app, db, command='migrate')
 
 # initialize the Flask application to use the database
 db.init_app(app)
